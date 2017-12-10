@@ -1,0 +1,195 @@
+{
+  "project_info": {
+    "project_number": "338272858710",
+    "firebase_url": "https://cdafirebaseproject.firebaseio.com",
+    "project_id": "cdafirebaseproject",
+    "storage_bucket": "cdafirebaseproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338272858710:android:35438a9bb64a4bc9",
+        "android_client_info": {
+          "package_name": "com.codingdojoangola"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338272858710-vd5inadpkbqscijc05ljvc78tcv1l4jf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codingdojoangola",
+            "certificate_hash": "91e9cf3e09c8dbedc03a3504ceace9b303bf5a1f"
+          }
+        },
+        {
+          "client_id": "338272858710-nvku5ahah7sdb0hikt6o50mfdrh3sc1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB55Mc3gPGg4WDUlC4tNI9qjCcXm4BpBrg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338272858710-nvku5ahah7sdb0hikt6o50mfdrh3sc1i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "338272858710-cbclg9sevmvlcv25pcjg1sesdburr0n6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.friendlychat.friendlychat"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338272858710:android:55fbdd5dbd349b5d",
+        "android_client_info": {
+          "package_name": "com.friendlychat.friendlychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338272858710-nvku5ahah7sdb0hikt6o50mfdrh3sc1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB55Mc3gPGg4WDUlC4tNI9qjCcXm4BpBrg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338272858710:android:b396552cc16d9761",
+        "android_client_info": {
+          "package_name": "com.yourcompany.friendlychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338272858710-no88pf4sb9a9d3fh06qg9m2lg09b5ktq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yourcompany.friendlychat",
+            "certificate_hash": "91e9cf3e09c8dbedc03a3504ceace9b303bf5a1f"
+          }
+        },
+        {
+          "client_id": "338272858710-nvku5ahah7sdb0hikt6o50mfdrh3sc1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB55Mc3gPGg4WDUlC4tNI9qjCcXm4BpBrg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338272858710-nvku5ahah7sdb0hikt6o50mfdrh3sc1i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "338272858710-cbclg9sevmvlcv25pcjg1sesdburr0n6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.friendlychat.friendlychat"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338272858710:android:ab9b9a436e8506c5",
+        "android_client_info": {
+          "package_name": "com.codingdojoangola.members.cdamembers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338272858710-httm3ac76ksitp3ccvcfgdqcgckdjggi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codingdojoangola.members.cdamembers",
+            "certificate_hash": "c4b9b093abe5e21ec20a9a07824ed731185c148b"
+          }
+        },
+        {
+          "client_id": "338272858710-nvku5ahah7sdb0hikt6o50mfdrh3sc1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB55Mc3gPGg4WDUlC4tNI9qjCcXm4BpBrg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338272858710-nvku5ahah7sdb0hikt6o50mfdrh3sc1i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "338272858710-cbclg9sevmvlcv25pcjg1sesdburr0n6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.friendlychat.friendlychat"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
