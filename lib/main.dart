@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'dart:async';
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
 
 void main() => runApp(
-  new Center(
-    child: new Text(
-      'Coding Dojo Angola',
-      textDirection: TextDirection.ltr,
-    ),
+  new MaterialApp(
+    home: new CDAStart()
   )
 );
+
+
+class CDAStart extends StatefulWidget {
+  @override
+  _CDAStartState createState() => new _CDAStartState();
+}
+
+class _CDAStartState extends State<CDAStart> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Center(
+          child: new Text(
+            'Coding Dojo Angola',
+            textDirection: TextDirection.ltr,
+          )
+      ),
+    );
+  }
+}
+
+
+
