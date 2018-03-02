@@ -30,7 +30,7 @@ class _CDAStartState extends State<CDAStart> {
     });
 
     for(String member in members.keys){
-      print('$member this the member key for:  \nName: ${members[member].name}\nBelt: ${members[member].beltColor}');
+      print('Disponibilities: ${members[member].disponibilities}');
       memberList.add(new Member(members[member].beltColor, members[member].id, members[member].name, members[member].photoUri));
     }
 
@@ -41,6 +41,7 @@ class _CDAStartState extends State<CDAStart> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new ListView.builder(
+        scrollDirection: Axis.vertical,
         itemCount: members == null ? 0 : members.length,
         itemBuilder: (BuildContext context, int index) {
           return new Card(
@@ -48,8 +49,10 @@ class _CDAStartState extends State<CDAStart> {
               children: <Widget>[
                 new CircleAvatar(
                   radius: 30.0,
-                  child: new Image.network(
-                    memberList[index].photoUri,
+                  child: new ClipOval(
+                    child: new Image.network(
+                      memberList[index].photoUri,
+                    ),
                   ),
                 ),
                 new Text(
