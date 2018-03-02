@@ -40,12 +40,12 @@ class _CDAStartState extends State<CDAStart> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new ListView.builder(
-        scrollDirection: Axis.vertical,
-        itemCount: members == null ? 0 : members.length,
-        itemBuilder: (BuildContext context, int index) {
-          return new Card(
-            child: new Row(
+      body: new Container(
+        child: new ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: members == null ? 0 : members.length,
+          itemBuilder: (BuildContext context, int index) {
+            return new Row(
               children: <Widget>[
                 new CircleAvatar(
                   radius: 30.0,
@@ -55,13 +55,10 @@ class _CDAStartState extends State<CDAStart> {
                     ),
                   ),
                 ),
-                new Text(
-                    memberList[index].name
-                ),
               ],
-            )
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
