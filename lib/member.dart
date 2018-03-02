@@ -10,6 +10,9 @@ class Member {
   Object programmingLangs;
   Object technologies;
 
+
+  Member(this.beltColor, this.id, this.name, this.photoUri);
+
   Member.fromJson(Map value){
     beltColor = value["beltColor"];
     concludedProjects = value["concludedProjects"];

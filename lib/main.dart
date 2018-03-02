@@ -1,7 +1,5 @@
-import 'dart:async';
 import 'dart:convert';
 import 'package:cda_members/member.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -20,6 +18,7 @@ class CDAStart extends StatefulWidget {
 class _CDAStartState extends State<CDAStart> {
 
   Map members;
+   List<Member> memberList = new List();
 
   _loadMembers()async {
     var url = "https://codingdojo-79fd2.firebaseio.com/members.json";
@@ -29,6 +28,11 @@ class _CDAStartState extends State<CDAStart> {
     setState((){
       members = jsonCodec.decode(response.body);
     });
+
+    for(String member in members.keys){
+      print('$member this the member key for:  \nName: ${members[member].name}\nBelt: ${members[member].beltColor}');
+      memberList.add(new Member(members[member].beltColor, members[member].id, members[member].name, members[member].photoUri));
+    }
 
     print('members.len='+ members.length.toString());
   }
@@ -40,7 +44,19 @@ class _CDAStartState extends State<CDAStart> {
         itemCount: members == null ? 0 : members.length,
         itemBuilder: (BuildContext context, int index) {
           return new Card(
-            child: new Text('$index'),
+            child: new Row(
+              children: <Widget>[
+                new CircleAvatar(
+                  radius: 30.0,
+                  child: new Image.network(
+                    memberList[index].photoUri,
+                  ),
+                ),
+                new Text(
+                    memberList[index].name
+                ),
+              ],
+            )
           );
         },
       ),
