@@ -9,16 +9,23 @@ void main() => runApp(
   )
 );
 
+enum AppBarBehavior { normal, pinned, floating, snapping }
 
 class CDAStart extends StatefulWidget {
   @override
   _CDAStartState createState() => new _CDAStartState();
 }
 
-class _CDAStartState extends State<CDAStart> {
+class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin {
 
   Map members;
-   List<Member> memberList = new List();
+  List<Member> memberList = new List();
+
+  @override
+  void initState() {
+    super.initState();
+    _loadMembers();
+  }
 
   _loadMembers()async {
     var url = "https://codingdojo-79fd2.firebaseio.com/members.json";
@@ -62,18 +69,9 @@ class _CDAStartState extends State<CDAStart> {
       ),
     );
   }
-
-  @override
-  void initState() {
-    _loadMembers();
-  }
 }
 
-
-
 const jsonCodec = const JsonCodec(reviver: _reviver);
-
-
 
 _reviver(key, value) {
   if(key != null && value is Map && key.contains("-")){
