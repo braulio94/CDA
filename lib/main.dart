@@ -10,6 +10,8 @@ void main() => runApp(
 );
 
 enum AppBarBehavior { normal, pinned, floating, snapping }
+const double _kViewportFraction = 0.3;
+
 
 class CDAStart extends StatefulWidget {
   @override
@@ -20,6 +22,9 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
 
   Map members;
   List<Member> memberList = new List();
+  final PageController _pageController = new PageController(viewportFraction: _kViewportFraction);
+  ValueNotifier<double> selectedIndex = new ValueNotifier<double>(0.0);
+  int currentPage = 0;
 
   @override
   void initState() {
@@ -47,27 +52,46 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Container(
-        child: new ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: members == null ? 0 : members.length,
-          itemBuilder: (BuildContext context, int index) {
-            return new Row(
-              children: <Widget>[
-                new CircleAvatar(
-                  radius: 30.0,
-                  child: new ClipOval(
-                    child: new Image.network(
-                      memberList[index].photoUri,
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
-        ),
+      body: new Stack(
+        children: <Widget>[
+          new NotificationListener<ScrollNotification>(
+            onNotification: (ScrollNotification notification) {
+              if (notification.depth == 0 && notification is ScrollUpdateNotification) {
+                selectedIndex.value = _pageController.page;
+                setState(() {});
+              }
+            },
+            child: new PageView(
+              controller: _pageController,
+              children: _buildPages(),
+            ),
+          ),
+        ],
       ),
     );
+  }
+
+  Iterable<Widget> _buildPages() {
+    final List<Widget> pages = <Widget>[];
+    for (int index = 0; index < memberList.length; index++) {
+      var alignment = Alignment.topCenter.add(new Alignment(
+          (selectedIndex.value - index) * _kViewportFraction, 0.0));
+      var resizeFactor = (1 - (((selectedIndex.value - index).abs() * 0.3).clamp(0.0, 1.0)));
+      print('resize factor: $resizeFactor');
+      pages.add(new Container(
+        margin: const EdgeInsets.only(top: 60.0),
+        alignment: alignment,
+        child: new CircleAvatar(
+          radius: 40.0 * resizeFactor,
+          child: new ClipOval(
+            child: new Image.network(
+              memberList[index].photoUri,
+            ),
+          ),
+        ),
+      ));
+    }
+    return pages;
   }
 }
 
