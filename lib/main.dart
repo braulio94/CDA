@@ -29,6 +29,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
   Map members;
   List<Member> memberList = new List();
   PageController pageController = new PageController();
+  ValueNotifier<double> offset = new ValueNotifier<double>(0.0);
 
   @override
   void initState() {
@@ -53,6 +54,21 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
     print('members.len='+ members.length.toString());
   }
 
+  _handleScrollNotification(ScrollNotification notification, AxisDirection direction){
+    if(notification is ScrollStartNotification){
+      offset.value = 2.0;
+    }
+    if(notification is ScrollEndNotification){
+      offset.value = 0.0;
+    }
+
+    if(direction == AxisDirection.up){
+      print('Scrolling Up');
+    } else if(direction == AxisDirection.down){
+      print('Scrolling Down');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -60,7 +76,8 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
         children: <Widget>[
           new NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification notification){
-
+              _handleScrollNotification(notification, notification.metrics.axisDirection);
+              setState(() {});
             },
             child: new CustomScrollView(
               physics: new BouncingScrollPhysics(),
@@ -75,8 +92,8 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                       padding: const EdgeInsets.only(top: 30.0),
                       alignment: Alignment.bottomCenter.add(new Alignment(1.4, 2.0)),
                       child: new ListView.builder(
+                        physics: new NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        reverse: true,
                         scrollDirection: Axis.horizontal,
                         itemCount: members == null ? 0 : members.length,
                         itemBuilder: (BuildContext context, int index) {
@@ -106,7 +123,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                         return new Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            new Text('${member.name}', textAlign: TextAlign.center, style: const TextStyle(fontSize: 20.0, color: Colors.black)),
+                            new Text('${member.name}', textAlign: TextAlign.right, style: const TextStyle(fontSize: 20.0, color: Colors.black)),
                             new Card(
                               child: new Container(
                                 height: 150.0,
@@ -141,7 +158,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
             ),
           ),
           new Container(
-            alignment: Alignment.bottomRight.add(new FractionalOffset(2.0, 0.45)),
+            alignment: Alignment.bottomRight.add(new FractionalOffset(offset.value, 0.45)),
             child: new DecoratedBox(
               decoration: new BoxDecoration(
                   borderRadius: new BorderRadius.circular(30.0)),
