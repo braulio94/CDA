@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cda_members/cda_banner.dart';
 import 'package:cda_members/member.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/services.dart';
 
 void main() => runApp(
     new MaterialApp(
+      color: Colors.red,
         home: new Scaffold(
           body: new CDAStart(),
         )
@@ -198,47 +200,4 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   String toString() => '_SliverAppBarDelegate';
-}
-
-class CDALogoBanner extends StatelessWidget {
-
-  final double offset;
-
-  CDALogoBanner({
-    this.offset
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return new Container(
-      alignment: Alignment.bottomRight.add(new FractionalOffset(offset, 0.45)),
-      child: new DecoratedBox(
-        decoration: new BoxDecoration(
-            borderRadius: new BorderRadius.circular(30.0)),
-        child: new ClipRRect(
-          borderRadius: new BorderRadius.circular(30.0),
-          child: new MaterialButton(
-              height: 60.0,
-              minWidth: 250.0,
-              onPressed: null,
-              color: Colors.grey[900],
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new CircleAvatar(
-                    radius: 20.0,
-                    child: new Image(image: new AssetImage('assets/image/cda_logo.png')),
-                  ),
-                  new Container(
-                    margin: const EdgeInsets.only(left: 25.0),
-                    child: new Text('Coding Dojo Angola', textAlign: TextAlign.end, style: const TextStyle(fontSize: 13.0, color: Colors.white, fontWeight: FontWeight.w800)),
-                  )
-                ],
-              )
-          ),
-        ),
-      ),
-    );
-  }
 }
