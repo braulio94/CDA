@@ -12,7 +12,7 @@ class Member {
   Object technologies;
 
 
-  Member(this.beltColor, this.id, this.name, this.photoUri);
+  Member(this.beltColor, this.id, this.name, this.photoUri, this.email);
 
   Member.fromJson(Map value){
     beltColor = value["beltColor"];

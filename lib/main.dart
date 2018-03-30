@@ -53,7 +53,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
 
     for(String member in members.keys){
       print('Disponibilities: ${members[member].disponibilities}');
-      memberList.add(new Member(members[member].beltColor, members[member].id, members[member].name, members[member].photoUri));
+      memberList.add(new Member(members[member].beltColor, members[member].id, members[member].name, members[member].photoUri, members[member].email));
     }
 
     print('members.len='+ members.length.toString());
@@ -129,18 +129,21 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                                 child: new Container(
                                   height: 200.0,
                                   child: new Container(
+                                    alignment: Alignment.topRight,
                                     margin: const EdgeInsets.only(top: 20.0, right: 15.0),
                                     child: new Column(
                                       children: <Widget>[
                                         new Text(
                                             '${member.name}',
                                             textAlign: TextAlign.right,
+                                            textDirection: TextDirection.rtl,
                                             style: const TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Mina')
                                         ),
                                         new Text(
                                             '${member.email}',
                                             textAlign: TextAlign.right,
-                                            style: const TextStyle(fontSize: 15.0, color: Colors.black, fontFamily: 'Mina')
+                                            textDirection: TextDirection.rtl,
+                                            style: const TextStyle(fontSize: 12.0, color: Colors.black, fontFamily: 'Mina')
                                         ),
                                       ],
                                     )
