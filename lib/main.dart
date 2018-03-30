@@ -6,7 +6,9 @@ import 'package:flutter/services.dart';
 
 void main() => runApp(
     new MaterialApp(
-        home: new CDAStart()
+        home: new Scaffold(
+          body: new CDAStart(),
+        )
     )
 );
 
@@ -71,8 +73,16 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Stack(
+    return new Container(
+      decoration: new BoxDecoration(
+        gradient: new LinearGradient(colors: [Colors.redAccent[200], Colors.red[700]],
+            begin: const FractionalOffset(0.5, 0.0),
+            end: const FractionalOffset(0.0, 0.5),
+            stops: [0.0,1.0],
+            tileMode: TileMode.clamp
+        ),
+      ),
+      child: new Stack(
         children: <Widget>[
           new NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification notification){
@@ -89,27 +99,15 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                     minHeight: 90.0,
                     maxHeight: 250.0,
                     child: new Container(
-                      padding: const EdgeInsets.only(top: 30.0),
-                      alignment: Alignment.bottomCenter.add(new Alignment(1.4, 2.0)),
-                      child: new ListView.builder(
-                        physics: new NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: members == null ? 0 : members.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return new Container(
-                            margin: const EdgeInsets.only(left: 20.0),
-                            child: new CircleAvatar(
-                              radius: 40.0,
-                              child: new ClipOval(
-                                child: new Image.network(
-                                  memberList[index].photoUri,
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                      padding: const EdgeInsets.only(top: 30.0, left: 10.0),
+                      alignment: Alignment.bottomLeft.add(new FractionalOffset(0.5, 0.7)),
+                      child: new CircleAvatar(
+                        radius: 50.0,
+                        backgroundColor: Colors.white,
+                        child: new ClipOval(
+                            child: new Image.asset('assets/image/user_avatar.png', color: Colors.grey[400])
+                        ),
+                      )
                     ),
                   ),
                 ),
@@ -117,35 +115,31 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                   child: new SizedBox(
                     height: 800.0,
                     child: new PageView(
-                      physics: new NeverScrollableScrollPhysics(),
+                      //physics: new NeverScrollableScrollPhysics(),
                       controller: pageController,
                       children: memberList.map((Member member){
                         return new Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            new Text('${member.name}', textAlign: TextAlign.right, style: const TextStyle(fontSize: 20.0, color: Colors.black)),
                             new Card(
                               child: new Container(
-                                height: 150.0,
-                                margin: const EdgeInsets.all(10.0),
+                                height: 200.0,
+                                child: new Text('${member.name}', textAlign: TextAlign.right, style: const TextStyle(fontSize: 20.0, color: Colors.black)),
                               ),
                             ),
                             new Card(
                               child: new Container(
                                 height: 150.0,
-                                margin: const EdgeInsets.all(10.0),
                               ),
                             ),
                             new Card(
                               child: new Container(
                                 height: 150.0,
-                                margin: const EdgeInsets.all(10.0),
                               ),
                             ),
                             new Card(
                               child: new Container(
                                 height: 150.0,
-                                margin: const EdgeInsets.all(10.0),
                               ),
                             ),
                           ],
@@ -157,36 +151,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
               ],
             ),
           ),
-          new Container(
-            alignment: Alignment.bottomRight.add(new FractionalOffset(offset.value, 0.45)),
-            child: new DecoratedBox(
-              decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.circular(30.0)),
-              child: new ClipRRect(
-                borderRadius: new BorderRadius.circular(30.0),
-                child: new MaterialButton(
-                  height: 60.0,
-                  minWidth: 250.0,
-                  onPressed: null,
-                  color: Colors.grey[900],
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new CircleAvatar(
-                        radius: 20.0,
-                        child: new Image(image: new AssetImage('assets/image/cda_logo.png')),
-                      ),
-                      new Container(
-                        margin: const EdgeInsets.only(left: 25.0),
-                        child: new Text('Coding Dojo Angola', textAlign: TextAlign.end, style: const TextStyle(fontSize: 13.0, color: Colors.white, fontWeight: FontWeight.w800)),
-                      )
-                    ],
-                  )
-                ),
-              ),
-            ),
-          ),
+          new CDALogoBanner(offset: offset.value)
         ],
       ),
     );
@@ -221,4 +186,47 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   String toString() => '_SliverAppBarDelegate';
+}
+
+class CDALogoBanner extends StatelessWidget {
+
+  final double offset;
+
+  CDALogoBanner({
+    this.offset
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      alignment: Alignment.bottomRight.add(new FractionalOffset(offset, 0.45)),
+      child: new DecoratedBox(
+        decoration: new BoxDecoration(
+            borderRadius: new BorderRadius.circular(30.0)),
+        child: new ClipRRect(
+          borderRadius: new BorderRadius.circular(30.0),
+          child: new MaterialButton(
+              height: 60.0,
+              minWidth: 250.0,
+              onPressed: null,
+              color: Colors.grey[900],
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new CircleAvatar(
+                    radius: 20.0,
+                    child: new Image(image: new AssetImage('assets/image/cda_logo.png')),
+                  ),
+                  new Container(
+                    margin: const EdgeInsets.only(left: 25.0),
+                    child: new Text('Coding Dojo Angola', textAlign: TextAlign.end, style: const TextStyle(fontSize: 13.0, color: Colors.white, fontWeight: FontWeight.w800)),
+                  )
+                ],
+              )
+          ),
+        ),
+      ),
+    );
+  }
 }
