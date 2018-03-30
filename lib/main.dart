@@ -32,6 +32,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
   List<Member> memberList = new List();
   PageController pageController = new PageController();
   ValueNotifier<double> offset = new ValueNotifier<double>(0.0);
+  ValueNotifier<int> page = new ValueNotifier<int>(0);
 
   @override
   void initState() {
@@ -91,15 +92,15 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                   floating: true,
                   delegate: new _SliverAppBarDelegate(
                     minHeight: 90.0,
-                    maxHeight: 250.0,
+                    maxHeight: 200.0,
                     child: new Container(
-                      padding: const EdgeInsets.only(top: 30.0, left: 10.0),
-                      alignment: Alignment.bottomLeft.add(new FractionalOffset(0.5, 0.7)),
+                      padding: const EdgeInsets.only(top: 30.0),
+                      alignment: Alignment.bottomLeft.add(new FractionalOffset(0.58, 1.0)),
                       child: new CircleAvatar(
                         radius: 50.0,
                         backgroundColor: Colors.white,
                         child: new ClipOval(
-                            child: new Image.asset('assets/image/user_avatar.png', color: Colors.grey[400])
+                            child: memberList.isEmpty ? new Image.asset('assets/image/user_avatar.png', color: Colors.grey[300]) : new Image.network(memberList[page.value].photoUri),
                         ),
                       )
                     ),
@@ -110,30 +111,47 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                     height: 800.0,
                     child: new PageView(
                       //physics: new NeverScrollableScrollPhysics(),
+                      onPageChanged: (index) {
+                        setState(() {
+                          page.value = index;
+                        });
+                      },
                       controller: pageController,
                       children: memberList.map((Member member){
                         return new Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            new Card(
-                              child: new Container(
-                                height: 200.0,
-                                child: new Text('${member.name}', textAlign: TextAlign.right, style: const TextStyle(fontSize: 20.0, color: Colors.black)),
+                            new Padding(
+                              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                              child: new Card(
+                                child: new Container(
+                                  height: 200.0,
+                                  child: new Text('${member.name}', textAlign: TextAlign.right, style: const TextStyle(fontSize: 20.0, color: Colors.black)),
+                                ),
                               ),
                             ),
-                            new Card(
-                              child: new Container(
-                                height: 150.0,
+                            new Padding(
+                              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                              child:new Card(
+                                child: new Container(
+                                  height: 150.0,
+                                ),
                               ),
                             ),
-                            new Card(
-                              child: new Container(
-                                height: 150.0,
+                            new Padding(
+                              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                              child:new Card(
+                                child: new Container(
+                                  height: 150.0,
+                                ),
                               ),
                             ),
-                            new Card(
-                              child: new Container(
-                                height: 150.0,
+                            new Padding(
+                              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                              child:new Card(
+                                child: new Container(
+                                  height: 150.0,
+                                ),
                               ),
                             ),
                           ],
