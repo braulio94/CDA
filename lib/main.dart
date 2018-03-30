@@ -59,8 +59,8 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
     print('members.len='+ members.length.toString());
   }
 
-  _handleScrollNotification(ScrollNotification notification){
-    if(notification is ScrollStartNotification){
+  _handleScrollNotification(ScrollNotification notification, AxisDirection direction){
+    if(notification is ScrollUpdateNotification && direction == AxisDirection.down){
       offset.value = 2.0;
     }
     if(notification is ScrollEndNotification){
@@ -83,7 +83,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
         children: <Widget>[
           new NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification notification){
-              _handleScrollNotification(notification);
+              _handleScrollNotification(notification, notification.metrics.axisDirection);
               setState(() {});
             },
             child: new CustomScrollView(

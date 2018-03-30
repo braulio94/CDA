@@ -62,3 +62,10 @@ flutter:
   assets:
       - assets/image/cda_logo.png
       - assets/image/user_avatar.png
+
+  fonts:
+      - family: Schyler
+         fonts:
+          - asset: assets/fonts/Mina-Regular.ttf
+          - asset: assets/fonts/Mina-Bold.ttf
+            style: bold
