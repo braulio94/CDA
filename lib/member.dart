@@ -6,6 +6,7 @@ class Member {
   Object disponibilities;
   String id;
   String name;
+  String email;
   String photoUri;
   Object programmingLangs;
   Object technologies;
@@ -22,7 +23,7 @@ class Member {
     photoUri = value["photoUri"];
     programmingLangs = value["programmingLangs"];
     technologies = value["technologies"];
-
+    email = value["email"];
   }
 
 }

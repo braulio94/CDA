@@ -97,7 +97,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                     maxHeight: 200.0,
                     child: new Container(
                       padding: const EdgeInsets.only(top: 30.0),
-                      alignment: Alignment.bottomLeft.add(new FractionalOffset(0.58, 1.0)),
+                      alignment: Alignment.bottomLeft.add(new FractionalOffset(0.6, 1.2)),
                       child: new CircleAvatar(
                         radius: 50.0,
                         backgroundColor: Colors.white,
@@ -124,16 +124,32 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
                             new Padding(
-                              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                               child: new Card(
                                 child: new Container(
                                   height: 200.0,
-                                  child: new Text('${member.name}', textAlign: TextAlign.right, style: const TextStyle(fontSize: 20.0, color: Colors.black)),
+                                  child: new Container(
+                                    margin: const EdgeInsets.only(top: 20.0, right: 15.0),
+                                    child: new Column(
+                                      children: <Widget>[
+                                        new Text(
+                                            '${member.name}',
+                                            textAlign: TextAlign.right,
+                                            style: const TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Mina')
+                                        ),
+                                        new Text(
+                                            '${member.email}',
+                                            textAlign: TextAlign.right,
+                                            style: const TextStyle(fontSize: 15.0, color: Colors.black, fontFamily: 'Mina')
+                                        ),
+                                      ],
+                                    )
+                                  ),
                                 ),
                               ),
                             ),
                             new Padding(
-                              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                               child:new Card(
                                 child: new Container(
                                   height: 150.0,
@@ -141,7 +157,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                               ),
                             ),
                             new Padding(
-                              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                               child:new Card(
                                 child: new Container(
                                   height: 150.0,
@@ -149,7 +165,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                               ),
                             ),
                             new Padding(
-                              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                               child:new Card(
                                 child: new Container(
                                   height: 150.0,

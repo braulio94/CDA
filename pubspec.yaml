@@ -64,8 +64,7 @@ flutter:
       - assets/image/user_avatar.png
 
   fonts:
-      - family: Schyler
-         fonts:
-          - asset: assets/fonts/Mina-Regular.ttf
-          - asset: assets/fonts/Mina-Bold.ttf
-            style: bold
+     - family: Mina
+       fonts:
+         - asset: assets/fonts/Mina/Mina-Regular.ttf
+         - asset: assets/fonts/Mina/Mina-Bold.ttf

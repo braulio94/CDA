@@ -29,8 +29,8 @@ class CDALogoBanner extends StatelessWidget {
                       return new Center(
                         child: new AlertDialog(
                           content: new Container(
-                            height: 300.0,
-                            width: 300.0,
+                            height: 350.0,
+                            width: 350.0,
                           child: new Column(
                             children: <Widget>[
                               new Hero(
@@ -44,7 +44,8 @@ class CDALogoBanner extends StatelessWidget {
                                 ),
                               ),
                               new Text(
-                                'Coding Dojo Angola is a space where interested in software development in Angola can meet to learn and teach programming, look for information about job vacancies in the information technology industry and for companies to find Angolan talent.'
+                                'Coding Dojo Angola is a space where interested in software development in Angola can meet to learn and teach programming, look for information about job vacancies in the information technology industry and for companies to find Angolan talent.',
+                                style: const TextStyle(fontFamily: 'Mina'),
                               )
                             ],
                           )
@@ -69,8 +70,12 @@ class CDALogoBanner extends StatelessWidget {
                     ),
                   ),
                   new Container(
-                    margin: const EdgeInsets.only(left: 25.0),
-                    child: new Text('Coding Dojo Angola', textAlign: TextAlign.end, style: const TextStyle(fontSize: 13.0, color: Colors.white, fontWeight: FontWeight.w800)),
+                    margin: const EdgeInsets.only(left: 20.0),
+                    child: new Text(
+                        'Coding Dojo Angola',
+                        textAlign: TextAlign.end,
+                        style: const TextStyle(fontSize: 13.0, color: Colors.white, fontWeight: FontWeight.w800, fontFamily: 'Mina')
+                    ),
                   )
                 ],
               )
