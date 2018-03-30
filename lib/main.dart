@@ -93,11 +93,11 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                   pinned: true,
                   floating: true,
                   delegate: new _SliverAppBarDelegate(
-                    minHeight: 90.0,
+                    minHeight: 120.0,
                     maxHeight: 200.0,
                     child: new Container(
-                      padding: const EdgeInsets.only(top: 30.0),
-                      alignment: Alignment.bottomLeft.add(new FractionalOffset(0.6, 1.2)),
+                      padding: const EdgeInsets.only(top: 50.0),
+                      alignment: new FractionalOffset(0.1, 2.0),
                       child: new CircleAvatar(
                         radius: 50.0,
                         backgroundColor: Colors.white,

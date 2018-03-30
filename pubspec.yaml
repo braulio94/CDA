@@ -62,6 +62,11 @@ flutter:
   assets:
       - assets/image/cda_logo.png
       - assets/image/user_avatar.png
+      - assets/image/social/github-logo.png
+      - assets/image/social/linkedin.png
+      - assets/image/social/medium.png
+      - assets/image/social/twitter.png
+      - assets/image/social/youtube.png
 
   fonts:
      - family: Mina
