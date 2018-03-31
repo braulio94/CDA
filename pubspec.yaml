@@ -67,7 +67,6 @@ flutter:
       - assets/image/social/medium.png
       - assets/image/social/twitter.png
       - assets/image/social/youtube.png
-      - assets/cda-data.json
 
   fonts:
      - family: Mina

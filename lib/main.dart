@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:CodingDojoAngola/basic_info.dart';
 import 'package:CodingDojoAngola/member.dart';
 import 'package:CodingDojoAngola/cda_banner.dart';
+import 'package:CodingDojoAngola/member_header.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -93,20 +95,10 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                 new SliverPersistentHeader(
                   pinned: true,
                   floating: true,
-                  delegate: new _SliverAppBarDelegate(
+                  delegate: new SliverAppBarDelegate(
                     minHeight: 120.0,
                     maxHeight: 200.0,
-                    child: new Container(
-                      padding: const EdgeInsets.only(top: 50.0),
-                      alignment: new FractionalOffset(0.1, 2.0),
-                      child: new CircleAvatar(
-                        radius: 50.0,
-                        backgroundColor: Colors.white,
-                        child: new ClipOval(
-                            child: memberList.isEmpty ? new Image.asset('assets/image/user_avatar.png', color: Colors.grey[300]) : new Image.network(memberList[page.value].photoUri),
-                        ),
-                      )
-                    ),
+                    child: new MemberHeader(photo: memberList[page.value].photoUri),
                   ),
                 ),
                 new SliverToBoxAdapter(
@@ -190,34 +182,4 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
       ),
     );
   }
-}
-
-class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
-  _SliverAppBarDelegate({
-    @required this.minHeight,
-    @required this.maxHeight,
-    @required this.child,
-  });
-
-  final double minHeight;
-  final double maxHeight;
-  final Widget child;
-
-  @override double get minExtent => minHeight;
-  @override double get maxExtent => maxHeight;
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return new SizedBox.expand(child: child);
-  }
-
-  @override
-  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-    return maxHeight != oldDelegate.maxHeight
-        || minHeight != oldDelegate.minHeight
-        || child != oldDelegate.child;
-  }
-
-  @override
-  String toString() => '_SliverAppBarDelegate';
 }
