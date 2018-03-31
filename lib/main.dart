@@ -3,6 +3,7 @@ import 'package:CodingDojoAngola/basic_info.dart';
 import 'package:CodingDojoAngola/member.dart';
 import 'package:CodingDojoAngola/cda_banner.dart';
 import 'package:CodingDojoAngola/member_header.dart';
+import 'package:CodingDojoAngola/projects.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -133,14 +134,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                                 ),
                               ),
                             ),
-                            new Padding(
-                              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-                              child:new Card(
-                                child: new Container(
-                                  height: 150.0,
-                                ),
-                              ),
-                            ),
+                            new MemberProjects(member.id),
                           ],
                         );
                       }).toList(),
