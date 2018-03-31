@@ -1,12 +1,13 @@
 import 'dart:convert';
-import 'package:cda_members/cda_banner.dart';
-import 'package:cda_members/member.dart';
+import 'package:CodingDojoAngola/member.dart';
+import 'package:CodingDojoAngola/cda_banner.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() => runApp(
     new MaterialApp(
+      title: 'Coding Dojo Angola',
       color: Colors.red,
         home: new Scaffold(
           body: new CDAStart(),

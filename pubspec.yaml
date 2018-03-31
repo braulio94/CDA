@@ -1,4 +1,4 @@
-name: cda_members
+name: CodingDojoAngola
 description: a mini version of https:&#x2F;&#x2F;github.com&#x2F;codingdojoangola&#x2F;cda-app developed with flutter
 
 dependencies:
@@ -67,6 +67,7 @@ flutter:
       - assets/image/social/medium.png
       - assets/image/social/twitter.png
       - assets/image/social/youtube.png
+      - assets/cda-data.json
 
   fonts:
      - family: Mina
