@@ -28,9 +28,16 @@ class CDALogoBanner extends StatelessWidget {
                     builder: (BuildContext context) {
                       return new Center(
                         child: new AlertDialog(
+                          title: new Text(
+                              'About',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(fontFamily: 'Mina')
+                          ),
                           content: new Container(
-                            height: 350.0,
-                            width: 350.0,
+                            constraints: new BoxConstraints(
+                              maxHeight: 250.0,
+                              maxWidth: 350.0
+                            ),
                           child: new Column(
                             children: <Widget>[
                               new Hero(
@@ -38,14 +45,14 @@ class CDALogoBanner extends StatelessWidget {
                                 child: new Container(
                                   alignment: Alignment.topCenter,
                                   margin: const EdgeInsets.only(bottom: 20.0),
-                                  height: 100.0,
-                                  width: 100.0,
+                                  height: 80.0,
+                                  width: 80.0,
                                   child: new Image.asset('assets/image/cda_logo.png'),
                                 ),
                               ),
                               new Text(
                                 'Coding Dojo Angola is a space where interested in software development in Angola can meet to learn and teach programming, look for information about job vacancies in the information technology industry and for companies to find Angolan talent.',
-                                style: const TextStyle(fontFamily: 'Mina'),
+                                style: const TextStyle(fontSize: 13.0, fontFamily: 'Mina'),
                               )
                             ],
                           )
