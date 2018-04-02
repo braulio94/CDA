@@ -46,7 +46,7 @@ class MemberHeader extends StatelessWidget {
         radius: 50.0,
         backgroundColor: Colors.white,
         child: new ClipOval(
-          child: new Image.asset('assets/image/user_avatar.png'),
+          child: new Image.network(photo),
         ),
       ),
     );

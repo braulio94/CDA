@@ -99,7 +99,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                   delegate: new SliverAppBarDelegate(
                     minHeight: 120.0,
                     maxHeight: 200.0,
-                    child: new MemberHeader(photo: memberList[page.value].photoUri),
+                    child: memberList.isEmpty ? new Container() : new MemberHeader(photo: memberList[page.value].photoUri),
                   ),
                 ),
                 new SliverToBoxAdapter(
@@ -122,15 +122,7 @@ class _CDAStartState extends State<CDAStart> with SingleTickerProviderStateMixin
                               padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                               child:new Card(
                                 child: new Container(
-                                  height: 150.0,
-                                ),
-                              ),
-                            ),
-                            new Padding(
-                              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-                              child:new Card(
-                                child: new Container(
-                                  height: 150.0,
+                                  height: 250.0,
                                 ),
                               ),
                             ),
